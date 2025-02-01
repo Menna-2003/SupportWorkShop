@@ -1,0 +1,82 @@
+// 🎨 Variables
+$primary-color: #2c3e50;
+$secondary-color: #e74c3c;
+$bg-color: #f4f4f4;
+$text-color: #333;
+$font-stack: "Arial", sans-serif;
+
+// 🔄 Mixins
+@mixin flex-container($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin button($bg-color) {
+    padding: 10px;
+    background-color: $bg-color;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($bg-color, 10%);
+    }
+}
+
+// 💡 Extend & Placeholder
+%box-style {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// 🌍 General Styles
+body {
+    font-family: $font-stack;
+    background-color: $bg-color;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+}
+
+// 📩 Contact Container
+.contact-container {
+    max-width: 800px;
+    margin: 50px auto;
+    @extend %box-style;
+
+    h1 {
+        color: $primary-color;
+    }
+}
+
+// 📝 Form
+.contact-form {
+    @include flex-container(column);
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        @include button($secondary-color);
+
+        &:hover {
+            background-color: #c0392b;
+        }
+    }
+}
+
+// 📱 Responsive Design
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 15px;
+    }
+}

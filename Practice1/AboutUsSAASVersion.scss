@@ -1,0 +1,100 @@
+// 🎨 Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+$bg-color: #f9f9f9;
+$font-stack: "Arial", sans-serif;
+
+// 🔄 Mixins
+@mixin flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@mixin button($bg-color) {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: $bg-color;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: darken($bg-color, 10%);
+    }
+}
+
+// 🔁 Loop for team member colors
+$members: (
+    developer: #e74c3c,
+    designer: #9b59b6,
+    manager: #f1c40f
+);
+
+// 💡 Extend & Placeholder
+%box-style {
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+}
+
+// 🌍 General Styles
+body {
+    font-family: $font-stack;
+    background-color: $bg-color;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+}
+
+// 🏢 About Us Container
+.about-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    h1 {
+        color: $primary-color;
+    }
+}
+
+// 👥 Team Section
+.team {
+    @include flex-container;
+}
+
+.team-member {
+    width: 30%;
+    text-align: center;
+    @extend %box-style;
+
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    @each $role, $color in $members {
+        &.#{$role} {
+            background-color: $color;
+        }
+    }
+}
+
+// 🔘 Buttons
+.btn {
+    @include button($primary-color);
+}
+
+// 📱 Responsive Design
+@media (max-width: 768px) {
+    .team-member {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

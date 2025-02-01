@@ -1,0 +1,105 @@
+//^ ------------------------------------------------------------------------------------------------- 
+//^                                 Convert this code to SAAS code 
+//^ ------------------------------------------------------------------------------------------------- 
+
+//! 🎯 How to Convert CSS to SASS 
+
+//~     1️⃣ Convert CSS Variables to SASS Variables (--primary-color → $primary-color) 
+//~     2️⃣ Use Nesting to avoid repeating selectors 
+//~     3️⃣ Replace Repetitive Code with Mixins (@mixin) 
+//~     4️⃣ Use Extend (@extend) for shared styles 
+//~     5️⃣ Use Loops (@each, @for) for dynamic styling 
+//~     6️⃣ Use Interpolation (#{$variable}) for dynamic class names
+//~     7️⃣ Make Media Queries Dynamic using Variables
+
+
+
+/* Variables */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --bg-color: #f9f9f9;
+    --font-stack: "Arial", sans-serif;
+}
+
+/* General Styles */
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* About Us Container */
+.about-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.about-container h1 {
+    color: var(--primary-color);
+}
+
+/* Team Section */
+.team {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    width: 30%;
+    text-align: center;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member.developer {
+    background-color: #e74c3c;
+}
+
+.team-member.manager {
+    background-color: #f1c40f;
+}
+
+.team-member.designer {
+    background-color: #9b59b6;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-member {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
